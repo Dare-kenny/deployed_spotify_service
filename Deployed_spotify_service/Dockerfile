@@ -89,4 +89,4 @@ COPY --from=extract build/target/extracted/application/ ./
 
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher" ]
+ENTRYPOINT [ "sh","-c","java -Dserver.port=${PORT:-8080} org.springframework.boot.loader.launch.JarLauncher" ]
